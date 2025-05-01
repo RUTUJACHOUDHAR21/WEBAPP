@@ -49,38 +49,124 @@
 <body>
   <div class="container">
     <h1>🌸 Poetry Generator 🌸</h1>
+    
     <label for="language">Select Language:</label>
     <select id="language" onchange="showPoem()">
       <option value="">--Choose--</option>
       <option value="english">English</option>
       <option value="hindi">Hindi</option>
+      <option value="french">French</option>
+      <option value="spanish">Spanish</option>
+      <option value="german">German</option>
+      <option value="italian">Italian</option>
     </select>
+
+    <label for="poemType">Select Poem:</label>
+    <select id="poemType" onchange="showPoem()">
+      <option value="">--Choose--</option>
+      <option value="love">Love</option>
+      <option value="life">Life</option>
+      <option value="nature">Nature</option>
+    </select>
+
     <div id="poem" class="poem-box"></div>
   </div>
 
   <script>
     const poems = {
-      english: [
-        `Roses are red,\nViolets are blue,\nSugar is sweet,\nAnd so are you.`,
-        `In the still of night,\nStars whisper tales of moonlight,\nDreams take gentle flight.`,
-        `Hope is the thing with feathers,\nThat perches in the soul,\nAnd sings the tune without the words,\nAnd never stops at all.`,
-        `The road not taken,\nIs a path that calls to you,\nWith choices in the air,\nAnd dreams that come true.`,
-        `I wandered lonely as a cloud,\nThat floats on high o'er vales and hills,\nWhen all at once I saw a crowd,\nA host, of golden daffodils.`
-      ],
-      hindi: [
-        `कुछ तो बात है तेरी बातों में,\nहर शब्द में जादू सा लगता है।\nमन के भावों को छू जाए,\nहर पंक्ति कविता सा लगता है।`,
-        `चलो कहीं दूर चलें,\nजहाँ शब्दों की ज़रूरत न हो,\nबस भावनाओं की भाषा बोले,\nऔर खामोशी भी सुकून दे।`,
-        `चाँदनी रातों में जब\nतारों से बात होती है,\nहर शेर में कोई\nकहानी सी बात होती है।`,
-        `यह वक्त भी हसीन है,\nजो पल में खुशियों के रंग सहेजने हैं,\nकभी जी लो, कभी खो लो,\nकभी अपने को तलाशो।`,
-        `तू चाँद सा है,\nजिसके उजालों में खुद को खो जाता हूँ,\nमैं तारे सा हूँ,\nजो तेरी रोशनी में टिमटिमाता हूँ।`
-      ]
+      english: {
+        love: [
+          `Roses are red,\nViolets are blue,\nSugar is sweet,\nAnd so are you.`,
+          `My love is like a red, red rose,\nThat's newly sprung in June;\nMy love is like the melody,\nThat's sweetly played in tune.`
+        ],
+        life: [
+          `The road not taken,\nIs a path that calls to you,\nWith choices in the air,\nAnd dreams that come true.`,
+          `Life is but a dream,\nA journey to be taken,\nThrough challenges and joy,\nIn a world that's always awaken.`
+        ],
+        nature: [
+          `I wandered lonely as a cloud,\nThat floats on high o'er vales and hills,\nWhen all at once I saw a crowd,\nA host, of golden daffodils.`,
+          `The sun above the clouds so high,\nA beacon in the endless sky,\nThe wind whispers through the trees,\nAs nature dances with the breeze.`
+        ]
+      },
+      hindi: {
+        love: [
+          `कुछ तो बात है तेरी बातों में,\nहर शब्द में जादू सा लगता है।\nमन के भावों को छू जाए,\nहर पंक्ति कविता सा लगता है।`,
+          `तू चाँद सा है,\nजिसके उजालों में खुद को खो जाता हूँ,\nमैं तारे सा हूँ,\nजो तेरी रोशनी में टिमटिमाता हूँ।`
+        ],
+        life: [
+          `यह वक्त भी हसीन है,\nजो पल में खुशियों के रंग सहेजने हैं,\nकभी जी लो, कभी खो लो,\nकभी अपने को तलाशो।`,
+          `जीवन की राहों में,\nकभी खुशियाँ मिलेंगी,\nकभी ग़म, लेकिन,\nराह तो एक ही है।`
+        ],
+        nature: [
+          `चाँदनी रातों में जब\nतारों से बात होती है,\nहर शेर में कोई\nकहानी सी बात होती है।`,
+          `हर सुबह एक नई उम्मीद लेकर आती है,\nहर शाम एक ख्वाब नए साथ लाती है।`
+        ]
+      },
+      french: {
+        love: [
+          `L'amour est comme une rose,\nDouce et fragile,\nElle fleurit dans le cœur,\nEt brille comme une étoile.`,
+          `Je t'aime comme un ciel bleu,\nComme un océan sans fin,\nMon amour pour toi,\nEst tout ce qui est mien.`
+        ],
+        life: [
+          `La vie est un voyage,\nAvec des hauts et des bas,\nChaque jour une aventure,\nUne histoire qui commence à chaque pas.`,
+          `La vie est belle,\nMême dans la tempête,\nElle nous apprend à grandir,\nEt à suivre notre cœur.` 
+        ],
+        nature: [
+          `Les arbres dansent au vent,\nLes oiseaux chantent le matin,\nLa nature est une mélodie,\nQui enchante notre chemin.`,
+          `Le soleil brille sur la mer,\nLes vagues murmurent des secrets,\nLa nature est un poème,\nQue l'univers écrit pour nous.` 
+        ]
+      },
+      spanish: {
+        love: [
+          `Mi amor es como una rosa,\nRoja y hermosa,\nQue florece en mi corazón,\nSiempre brillante y preciosa.`,
+          `Te quiero como el sol,\nQue da luz a mi alma,\nEres mi amor eterno,\nQue calma mi alma.` 
+        ],
+        life: [
+          `La vida es un sueño,\nUna aventura para vivir,\nCada paso nos lleva,\nA donde queremos ir.`,
+          `Vivir es aprender,\nCada día es una lección,\nLa vida es un camino,\nLleno de pasión.` 
+        ],
+        nature: [
+          `El viento susurra en los árboles,\nLas flores bailan al ritmo del sol,\nLa naturaleza es la música,\nQue canta con el alma del sol.`,
+          `El sol se pone en el horizonte,\nLa luna se alza al cielo,\nLa naturaleza nos da paz,\nComo un abrazo sin fin.` 
+        ]
+      },
+      german: {
+        love: [
+          `Die Liebe ist wie eine Rose,\nSüß und zart,\nSie blüht in unserem Herzen,\nUnd verzaubert uns in der Nacht.`,
+          `Ich liebe dich wie den Himmel,\nWie die Sterne in der Nacht,\nMeine Liebe für dich,\nIst alles, was mich glücklich macht.` 
+        ],
+        life: [
+          `Das Leben ist ein Abenteuer,\nMit vielen Wegen, die wir gehen,\nJeder Schritt ein neuer Anfang,\nDer uns zu unseren Träumen führt.`,
+          `Das Leben lehrt uns zu wachsen,\nDurch Freude und Schmerz,\nEs führt uns auf die Reise,\nZu uns selbst, immer mehr.` 
+        ],
+        nature: [
+          `Die Bäume singen im Wind,\nDie Vögel fliegen hoch,\nDie Natur ist der Rhythmus,\nDer unsere Herzen erweckt.`,
+          `Der Regen fällt sanft auf die Erde,\nDie Blumen öffnen sich zum Morgen,\nDie Natur schenkt uns Frieden,\nIn einem unendlichen Takt.` 
+        ]
+      },
+      italian: {
+        love: [
+          `Il mio amore è come una rosa,\nDolce e delicata,\nFiorisce nel cuore,\nE brilla come una stella.`,
+          `Ti amo come il cielo,\nChe illumina la mia anima,\nIl mio amore per te,\nÈ tutto ciò che mi appartiene.` 
+        ],
+        life: [
+          `La vita è un viaggio,\nCon alti e bassi,\nOgni giorno è una nuova avventura,\nUn racconto che inizia con ogni passo.`,
+          `Vivere è imparare,\nOgni giorno è una lezione,\nLa vita è un cammino,\nPieno di passione.` 
+        ],
+        nature: [
+          `Gli alberi ballano al vento,\nGli uccelli cantano al mattino,\nLa natura è una melodia,\nChe incanta il nostro cammino.`,
+          `Il sole brilla sul mare,\nLe onde sussurrano segreti,\nLa natura è una poesia,\nChe l'universo scrive per noi.` 
+        ]
+      }
     };
 
     function showPoem() {
       const lang = document.getElementById("language").value;
+      const poemType = document.getElementById("poemType").value;
       const poemBox = document.getElementById("poem");
-      if (poems[lang]) {
-        const poem = poems[lang][Math.floor(Math.random() * poems[lang].length)];
+
+      if (lang && poemType && poems[lang][poemType]) {
+        const poem = poems[lang][poemType][Math.floor(Math.random() * poems[lang][poemType].length)];
         poemBox.textContent = poem;
       } else {
         poemBox.textContent = '';
